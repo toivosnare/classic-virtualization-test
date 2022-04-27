@@ -11,6 +11,18 @@ _start:
     csrc sstatus, t0
     sret
 test_start:
+    csrrw t0, sstatus, t0
+    ecall
+    csrrs t0, sie, t0
+    ecall
+    csrrc t0, satp, t0
+    ecall
+    csrrwi t0, mstatus, 0
+    ecall
+    csrrsi t0, mie, 0
+    ecall
+    csrrci t0, mtvec, 0
+    ecall
     sret
     ecall
     mret
